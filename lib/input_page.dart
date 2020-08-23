@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'reusablecard.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'gendercard.dart';
+
+
+const bottombuttonheight =80.0;
+const activecardcolor = Color(0xFF1D1E33);
+
 
 class InputPage extends StatefulWidget {
   @override
@@ -16,12 +23,20 @@ class _InputPageState extends State<InputPage> {
             children: <Widget>[
               Expanded(
                 child: ReusableCard(
-                  cardcolor: Color(0xFF1D1E33),
+                  cardcolor: activecardcolor,
+                  cardChild: gendercard(
+                    gender: "MALE",
+                    icon: FontAwesomeIcons.mars,
+                  ),
                 ),
               ),
               Expanded(
                 child: ReusableCard(
-                  cardcolor: Color(0xFF1D1E33),
+                  cardcolor: activecardcolor,
+                  cardChild: gendercard(
+                    gender: "FEMALE",
+                    icon: FontAwesomeIcons.venus,
+                  ),
                 ),
               ),
             ],
@@ -32,7 +47,7 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    cardcolor: Color(0xFF1D1E33),
+                    cardcolor: activecardcolor,
                   ),
                 ),
               ],
@@ -43,19 +58,25 @@ class _InputPageState extends State<InputPage> {
             children: <Widget>[
               Expanded(
                 child: ReusableCard(
-                  cardcolor: Color(0xFF1D1E33),
+                  cardcolor: activecardcolor,
                 ),
               ),
               Expanded(
                 child: ReusableCard(
-                  cardcolor: Color(0xFF1D1E33),
+                  cardcolor: activecardcolor,
+
                 ),
               ),
             ],
           ),
         ),
+          Container(
+          margin: EdgeInsets.only(top:10.0),
+          height: bottombuttonheight,
+          width: double.infinity,
+            color:Colors.pink,
 
-
+          ),
       ],
     );
   }
