@@ -6,6 +6,13 @@ import 'gendercard.dart';
 
 const bottombuttonheight =80.0;
 const activecardcolor = Color(0xFF1D1E33);
+const deactivatedcardcolor = Colors.blueGrey;
+
+ enum Gender{
+   male,
+   female
+ }
+
 
 
 class InputPage extends StatefulWidget {
@@ -14,6 +21,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Gender selectedGender;
   @override
   Widget build(BuildContext context) {
     return  Column(
@@ -22,20 +30,38 @@ class _InputPageState extends State<InputPage> {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: ReusableCard(
-                  cardcolor: activecardcolor,
-                  cardChild: gendercard(
-                    gender: "MALE",
-                    icon: FontAwesomeIcons.mars,
+                child: GestureDetector(
+                  onTap: (){
+                    setState(() {
+                     selectedGender = Gender.male;
+                    });
+
+
+                  },
+                  child: ReusableCard(
+                    cardcolor: selectedGender == Gender.male ? activecardcolor: deactivatedcardcolor,
+                    cardChild: gendercard(
+                      gender: "MALE",
+                      icon: FontAwesomeIcons.mars,
+                    ),
                   ),
                 ),
               ),
               Expanded(
-                child: ReusableCard(
-                  cardcolor: activecardcolor,
-                  cardChild: gendercard(
-                    gender: "FEMALE",
-                    icon: FontAwesomeIcons.venus,
+                child: GestureDetector(
+                  onTap: (){
+                    setState(() {
+                      selectedGender = Gender.female;
+                    });
+
+
+                  },
+                  child: ReusableCard(
+                    cardcolor: selectedGender == Gender.female ? activecardcolor : deactivatedcardcolor,
+                    cardChild: gendercard(
+                      gender: "FEMALE",
+                      icon: FontAwesomeIcons.venus,
+                    ),
                   ),
                 ),
               ),
