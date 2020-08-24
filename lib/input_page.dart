@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'bmi_brain.dart';
 import 'reusablecard.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'gendercard.dart';
@@ -213,8 +214,16 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
             texttitle: "CALCULATE",
             navigateroute: (){
+              BmiBrain bmiBrain = BmiBrain(
+                height : height,
+                weight: weight,
+              );
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => ResultPage(),
+                builder: (context) => ResultPage(
+                  bmi: bmiBrain.calculateBmi(),
+                  bmiInterpretation: bmiBrain.getBmiResultInterpretation(),
+                  bmiResultSummary: bmiBrain.getBmiResult(),
+                ),
               ));
             },
           ),
