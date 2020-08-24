@@ -5,6 +5,7 @@ import 'gendercard.dart';
 import 'constant.dart';
 import 'roundiconbutton.dart';
 import 'result_page.dart';
+import 'bottom_button.dart';
 
 
 
@@ -209,27 +210,13 @@ class _InputPageState extends State<InputPage> {
             ],
           ),
         ),
-          GestureDetector(
-            onTap: (){
+          BottomButton(
+            texttitle: "CALCULATE",
+            navigateroute: (){
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => ResultPage(),
               ));
             },
-            child: Container(
-            margin: EdgeInsets.only(top:10.0),
-            padding: EdgeInsets.all(20.0),
-            height: kBottombuttonheight,
-            width: double.infinity,
-              color:Colors.pink,
-              child: Text("CALCULATE",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 30.0,
-              ),
-              ),
-
-            ),
           ),
       ],
     );
